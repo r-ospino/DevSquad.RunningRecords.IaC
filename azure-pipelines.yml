@@ -17,3 +17,13 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+  
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Subscription'
+    azureResourceManagerConnection: 'SC-Subscription1'
+    subscriptionId: 'd6ba570b-67e9-42bc-bafd-d85070e4a5e5'
+    location: 'East US'
+    templateLocation: 'Linked artifact'
+    csmParametersFile: '/main.bicep'
+    deploymentMode: 'Incremental'

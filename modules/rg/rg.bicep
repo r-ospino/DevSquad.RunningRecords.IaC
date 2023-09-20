@@ -1,12 +1,11 @@
 targetScope = 'subscription'
 
 param location string = deployment().location
-param enviroment string = 'dev'
-param rgBaseName string
+param rgName string
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   location: location
-  name: 'rg-${rgBaseName}-${enviroment}'
+  name: rgName
 }
 
 output rgId string = rg.id
